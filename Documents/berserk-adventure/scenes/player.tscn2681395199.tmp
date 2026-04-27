@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://ctdmem0mka3hv"]
+
+[ext_resource type="Script" uid="uid://wxfruxlra3x8" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://dchrahju03pei" path="res://assets/sprites/atack.png" id="2_g2els"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
+radius = 35.0
+height = 212.0
+
+[node name="Player" type="CharacterBody2D" unique_id=42533981 groups=["player"]]
+script = ExtResource("1_3vyb7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=815733760]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_g2els")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1485829135]
+shape = SubResource("CapsuleShape2D_g2els")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=63458017]
+offset = Vector2(0, -80)
+process_callback = 0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.1
