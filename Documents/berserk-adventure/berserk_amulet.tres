@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://m4ipu5x00h7t"]
+
+[ext_resource type="Texture2D" uid="uid://c1yqmc65qd8du" path="res://assets/sprites/amulet.png" id="1_edp8w"]
+[ext_resource type="Script" uid="uid://d4dw4wn5snf10" path="res://item.gd" id="1_xlq6u"]
+
+[resource]
+script = ExtResource("1_xlq6u")
+item_name = "Berserk Amulet"
+description = "Power of the bear"
+icon = ExtResource("1_edp8w")
+set_name = "berserk"
+metadata/_custom_type_script = "uid://d4dw4wn5snf10"

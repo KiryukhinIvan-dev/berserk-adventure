@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://ctdmem0mka3hv" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://0sr84kqovpwy" path="res://scenes/enemy.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://cq23kxkqe4d6r" path="res://scenes/pause_menu.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://cigmfw635msob" path="res://scenes/inventory_ui.tscn" id="5_tefeu"]
+[ext_resource type="PackedScene" uid="uid://75u12gwypspw" path="res://scenes/pickup.tscn" id="6_tefeu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o5qli"]
 size = Vector2(5000, 100)
@@ -30,3 +32,14 @@ position = Vector2(714, 60)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=137344232]
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=2019294185 instance=ExtResource("3_sugp2")]
+
+[node name="InventoryUI" parent="CanvasLayer" unique_id=1122712801 instance=ExtResource("5_tefeu")]
+
+[node name="Pickup" parent="." unique_id=418403302 instance=ExtResource("6_tefeu")]
+position = Vector2(-436, 72)
+
+[node name="Pickup2" parent="." unique_id=1047316529 instance=ExtResource("6_tefeu")]
+position = Vector2(-521, 75)
+
+[node name="Pickup3" parent="." unique_id=34494640 instance=ExtResource("6_tefeu")]
+position = Vector2(-336, 69)

@@ -19,12 +19,10 @@ func _physics_process(_delta: float) -> void:
 		velocity.x = 0
 		
 	move_and_slide()
-	print("Player: ", player, " | In range: ", $DetectionArea.has_overlapping_bodies())
 	
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy") or body is StaticBody2D:
 		return
-	print("Entered: ", body.name)
 	if body.is_in_group("player"):
 		player = body
 	
