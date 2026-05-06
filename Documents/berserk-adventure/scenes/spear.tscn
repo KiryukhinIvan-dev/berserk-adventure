@@ -6,6 +6,15 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yp847"]
 size = Vector2(130, 20)
 
+[sub_resource type="Gradient" id="Gradient_uf2bl"]
+offsets = PackedFloat32Array(0, 0.3010204, 0.71938777, 1)
+colors = PackedColorArray(0.8627451, 0, 0, 1, 0.47220582, 0.21908951, 0.067924045, 1, 0.71776116, 0.45773667, 0.20648372, 1, 1, 1, 0.14117648, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_efxkm"]
+gradient = SubResource("Gradient_uf2bl")
+width = 15
+height = 15
+
 [node name="Spear" type="Area2D" unique_id=716119986]
 script = ExtResource("1_43rot")
 
@@ -15,5 +24,16 @@ shape = SubResource("RectangleShape2D_yp847")
 [node name="SpearSprite" type="Sprite2D" parent="." unique_id=1552361846]
 scale = Vector2(0.3, 0.15)
 texture = ExtResource("2_uf2bl")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1914959687]
+texture = SubResource("GradientTexture2D_efxkm")
+lifetime = 1.5
+speed_scale = 3.0
+spread = 15.0
+gravity = Vector2(0, 100)
+initial_velocity_min = 49.5
+initial_velocity_max = 49.5
+scale_amount_min = 0.6
+scale_amount_max = 0.8
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

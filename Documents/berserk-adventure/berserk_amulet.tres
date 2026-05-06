@@ -8,5 +8,5 @@ script = ExtResource("1_xlq6u")
 item_name = "Berserk Amulet"
 description = "Power of the bear"
 icon = ExtResource("1_edp8w")
-set_name = "berserk"
+item_set = "berserk"
 metadata/_custom_type_script = "uid://d4dw4wn5snf10"

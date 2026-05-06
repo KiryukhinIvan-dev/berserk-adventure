@@ -19,3 +19,10 @@ func has_item(item_name: String) ->  bool:
 		if item.name == item_name:
 			return true
 	return false
+
+func get_set_bonus(item_set: String) -> int:
+	var count := 0
+	for item in items:
+		if item.item_set == item_set:
+			count += 1
+	return int(float(count) / 2.0)

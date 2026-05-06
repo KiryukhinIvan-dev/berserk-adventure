@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed: float = 300.0
+@export var speed: float = 400.0
 @export var jump_velocity: = -400.0
 @export var attack_cooldown: = 0.4
 @export var max_health: int = 10
@@ -12,14 +12,24 @@ var can_attack: bool = true
 var health: int
 var is_dead: bool = false
 var last_facing: float = 1.0
-
 var spear_scene: PackedScene = preload("res://scenes/spear.tscn")
+var damage_bonus: int = 0
+var speed_bonus: float = 0
+var health_bonus: int = 0
 
 func _ready() -> void:
 	health = max_health
 	add_to_group("player")
-	print("Player added to group: ", is_in_group("player"))
+	Inventory.items_changed.connect(_on_items_changed)
+	_on_items_changed()
 
+func _on_items_changed() -> void:
+	damage_bonus = Inventory.get_set_bonus("berserk")
+	speed_bonus = damage_bonus * 20
+	health_bonus = damage_bonus * 5
+	max_health = 10 + health_bonus
+	print("Berserk bonus: +", damage_bonus, " dmg, +", speed_bonus, " spd")
+	
 func _physics_process(delta: float) -> void:
 	if is_dead:
 		return
@@ -39,7 +49,7 @@ func _physics_process(delta: float) -> void:
 			
 	var direction := Input.get_axis("left", "right")
 	if direction:
-		velocity.x = direction * speed
+		velocity.x = direction * (speed + speed_bonus)
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		
@@ -61,6 +71,8 @@ func throw_spear() -> void:
 	spear.direction = Vector2(last_facing, 0)
 	spear.global_position = global_position + Vector2(last_facing * 20, -50)
 	spear.get_node("SpearSprite").scale.x = abs(spear.get_node("SpearSprite").scale.x) * last_facing
+	spear.damage = 1 + damage_bonus
+	spear.speed = 500 + speed_bonus
 	
 func take_damage(amount: int) -> void:
 	health -= amount
