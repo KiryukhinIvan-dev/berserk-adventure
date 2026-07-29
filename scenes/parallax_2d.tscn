@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dxtgktk4hp7ys"]
+
+[ext_resource type="Script" uid="uid://dyg6ysyvq2jmn" path="res://scripts/parallax_2d.gd" id="1_73g43"]
+[ext_resource type="Texture2D" uid="uid://bef651txa35h2" path="res://assets/sprites/Landshaft/night-sky.png" id="2_1k0cr"]
+[ext_resource type="Texture2D" uid="uid://414rk5oskm5s" path="res://assets/BG/BG PIr.png" id="4_bqbnw"]
+[ext_resource type="Texture2D" uid="uid://cieg7of571obf" path="res://assets/BG/fon.png" id="5_nv4us"]
+
+[node name="Parallax2D" type="ParallaxBackground" unique_id=986922363]
+script = ExtResource("1_73g43")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=155073255]
+position = Vector2(969.99994, 308.1825)
+scale = Vector2(3.0974443, 1.5224043)
+texture = ExtResource("2_1k0cr")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="." unique_id=1931788499]
+motion_mirroring = Vector2(1150, 0)
+
+[node name="Fon" type="Sprite2D" parent="." unique_id=280920220]
+modulate = Color(0.556953, 0.556953, 0.556953, 1)
+position = Vector2(960.00006, 683)
+scale = Vector2(4.086498, 2.4814956)
+texture = ExtResource("5_nv4us")
+
+[node name="BgPIr" type="Sprite2D" parent="." unique_id=1358450539]
+modulate = Color(0.23392558, 0.2339254, 0.23392552, 1)
+position = Vector2(1443, 303)
+scale = Vector2(0.4744898, 0.961)
+texture = ExtResource("4_bqbnw")

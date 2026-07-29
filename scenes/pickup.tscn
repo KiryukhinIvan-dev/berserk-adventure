@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://75u12gwypspw"]
+
+[ext_resource type="Script" uid="uid://b4ldkvkqlw2nu" path="res://scripts/pickup.gd" id="1_pg2rt"]
+[ext_resource type="Resource" uid="uid://m4ipu5x00h7t" path="res://berserk_amulet.tres" id="2_gyxxy"]
+[ext_resource type="Texture2D" uid="uid://bhbaqihbmcip6" path="res://assets/sprites/treasure.png" id="3_gyxxy"]
+[ext_resource type="AudioStream" uid="uid://dws0qlhhl12lp" path="res://assets/sounds/armourmedium.mp3" id="4_4m06l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7cqbe"]
+
+[node name="Pickup" type="Area2D" unique_id=418403302]
+script = ExtResource("1_pg2rt")
+item = ExtResource("2_gyxxy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=636987260]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_gyxxy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2076102155]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_7cqbe")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=650450294]
+stream = ExtResource("4_4m06l")
+volume_db = -9.0

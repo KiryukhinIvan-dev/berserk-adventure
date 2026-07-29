@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dd46gu18mi17h"]
+
+[ext_resource type="Script" uid="uid://dngy3yg8y5yxc" path="res://scripts/ranged_enemy.gd" id="1_rs3ab"]
+[ext_resource type="Texture2D" uid="uid://ckdvpsu8sgtj7" path="res://assets/sprites/priest.png" id="2_32iyl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
+size = Vector2(103, 151)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_md0e3"]
+radius = 452.0177
+
+[node name="RangedEnemy" type="CharacterBody2D" unique_id=1676998315 groups=["enemy"]]
+script = ExtResource("1_rs3ab")
+attack_range = 600.0
+attack_cooldown = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=722463999]
+position = Vector2(41.5, 23.5)
+shape = SubResource("RectangleShape2D_md0e3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=672865305]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_32iyl")
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=296636493]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1164523221]
+shape = SubResource("CircleShape2D_md0e3")

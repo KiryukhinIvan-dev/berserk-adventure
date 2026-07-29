@@ -1,0 +1,14 @@
+AudioStreamPlayer
+LightOccluder2D
+Sprite2D
+Timer
+AnimationPlayer
+AnimatedSprite2D
+CPUParticles2D
+TextureRect
+HBoxContainer
+CollisionShape2D
+Area2D
+Button
+VBoxContainer
+CanvasLayer

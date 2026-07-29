@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://ke0bw2kpn0xi"]
+
+[ext_resource type="Script" uid="uid://b7oti4r8ik74k" path="res://scripts/spear.gd" id="1_43rot"]
+[ext_resource type="Texture2D" uid="uid://bt2mm0iqx3nmd" path="res://assets/sprites/spear.png" id="2_uf2bl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yp847"]
+size = Vector2(130, 20)
+
+[sub_resource type="Gradient" id="Gradient_uf2bl"]
+offsets = PackedFloat32Array(0, 0.3010204, 0.71938777, 1)
+colors = PackedColorArray(0.8627451, 0, 0, 1, 0.47220582, 0.21908951, 0.067924045, 1, 0.71776116, 0.45773667, 0.20648372, 1, 0.63317955, 0.63249373, 1.1551381e-06, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_efxkm"]
+gradient = SubResource("Gradient_uf2bl")
+width = 11
+height = 13
+fill_from = Vector2(0.62173915, 0.40869564)
+fill_to = Vector2(0.104347825, 0.973913)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_tye4b"]
+polygon = PackedVector2Array(-96.666664, -5, 34.166664, -14.166666, 95, -4.1666665, -52.5, 12.5)
+
+[node name="Spear" type="Area2D" unique_id=716119986]
+scale = Vector2(1.2, 1.2)
+gravity_point = true
+gravity_point_unit_distance = 1.071
+script = ExtResource("1_43rot")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=893731844]
+shape = SubResource("RectangleShape2D_yp847")
+
+[node name="SpearSprite" type="Sprite2D" parent="." unique_id=1552361846]
+modulate = Color(0.60784316, 0.60784316, 0.60784316, 1)
+scale = Vector2(0.3, 0.15)
+texture = ExtResource("2_uf2bl")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1914959687]
+texture = SubResource("GradientTexture2D_efxkm")
+lifetime = 1.5
+speed_scale = 4.0
+spread = 15.0
+gravity = Vector2(0, 30)
+initial_velocity_max = 49.5
+scale_amount_min = 0.6
+scale_amount_max = 0.8
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=183455628]
+occluder = SubResource("OccluderPolygon2D_tye4b")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
