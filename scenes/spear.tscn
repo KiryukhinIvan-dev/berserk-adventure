@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ke0bw2kpn0xi"]
 
 [ext_resource type="Script" uid="uid://b7oti4r8ik74k" path="res://scripts/spear.gd" id="1_43rot"]
-[ext_resource type="Texture2D" uid="uid://bt2mm0iqx3nmd" path="res://assets/sprites/spear.png" id="2_uf2bl"]
+[ext_resource type="Texture2D" uid="uid://d0n5twwxiuvjo" path="res://assets/Hero/hero 2/spear.png" id="2_uf2bl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yp847"]
 size = Vector2(130, 20)
@@ -30,8 +30,8 @@ script = ExtResource("1_43rot")
 shape = SubResource("RectangleShape2D_yp847")
 
 [node name="SpearSprite" type="Sprite2D" parent="." unique_id=1552361846]
-modulate = Color(0.60784316, 0.60784316, 0.60784316, 1)
-scale = Vector2(0.3, 0.15)
+modulate = Color(1.7534367, 1.235989, 1.0415235, 1)
+rotation = -3.3213615
 texture = ExtResource("2_uf2bl")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1914959687]

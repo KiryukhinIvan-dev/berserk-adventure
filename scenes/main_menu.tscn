@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://c7sngdvpx8m0o"]
 
 [ext_resource type="Script" uid="uid://34jufmm6bpbx" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://kv37kthpgpr8" path="res://assets/BG/Menu.png" id="2_bqqt6"]
+[ext_resource type="AudioStream" uid="uid://bbuac7iwcwc3p" path="res://assets/sounds/Menu.wav" id="2_ekxnf"]
 
 [node name="MainMenu" type="Control" unique_id=938840843]
 layout_mode = 3
@@ -10,6 +12,25 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l6cm7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1856795662]
+position = Vector2(958.5, 541.50006)
+scale = Vector2(0.9467773, 0.5307617)
+texture = ExtResource("2_bqqt6")
+
+[node name="Label" type="Label" parent="." unique_id=317725576]
+layout_mode = 0
+offset_left = 390.0
+offset_top = 69.0
+offset_right = 1543.0
+offset_bottom = 346.0
+theme_override_colors/font_color = Color(0.6328125, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "Berserk adventure
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=390220396]
 layout_mode = 1
@@ -28,17 +49,60 @@ alignment = 1
 
 [node name="Start" type="Button" parent="VBoxContainer" unique_id=1613239372]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_colors/font_color = Color(0.8745098, 0.38039216, 0.36862746, 1)
+theme_override_font_sizes/font_size = 55
 text = "Start"
+flat = true
 
 [node name="Continue" type="Button" parent="VBoxContainer" unique_id=1039885337]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_colors/font_color = Color(0.8745098, 0.38039216, 0.36862746, 1)
+theme_override_font_sizes/font_size = 55
 text = "Continue
 "
+flat = true
+
+[node name="Settings" type="Button" parent="VBoxContainer" unique_id=943789405]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8745098, 0.38039216, 0.36862746, 1)
+theme_override_font_sizes/font_size = 55
+text = "Settings
+"
+flat = true
 
 [node name="Quit" type="Button" parent="VBoxContainer" unique_id=460786686]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_colors/font_color = Color(0.8745098, 0.38039216, 0.36862746, 1)
+theme_override_font_sizes/font_size = 55
 text = "Quit
 "
+flat = true
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="." unique_id=828135413]
+stream = ExtResource("2_ekxnf")
+volume_db = -10.0
+autoplay = true
+
+[node name="IntroOverlay" type="CanvasLayer" parent="." unique_id=411775826]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="IntroOverlay" unique_id=1273296533]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="IntroText" type="Label" parent="IntroOverlay" unique_id=1814267886]
+offset_left = 502.0
+offset_top = 216.0
+offset_right = 1740.0
+offset_bottom = 748.0
+theme_override_font_sizes/font_size = 47
+text = "ВПЕРЕДИ ЖДЕТ ПОСЛЕДНЕЕ 	ИСПЫТАНИЕ...              ОТРЕЧЕНИЕ ОТ БОГОВ...
+"
+vertical_alignment = 1
+autowrap_mode = 2
+autowrap_trim_flags = 0
+justification_flags = 0

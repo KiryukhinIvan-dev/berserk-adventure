@@ -17,10 +17,11 @@ script = ExtResource("1_7p1mj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=722463999]
 position = Vector2(41.5, 23.5)
+scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_md0e3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=672865305]
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_md0e3")
 
 [node name="DetectionArea" type="Area2D" parent="." unique_id=296636493]
@@ -29,4 +30,5 @@ texture = ExtResource("2_md0e3")
 shape = SubResource("CircleShape2D_md0e3")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1975446701]
+scale = Vector2(2, 2)
 occluder = SubResource("OccluderPolygon2D_tye4b")

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b4ldkvkqlw2nu" path="res://scripts/pickup.gd" id="1_pg2rt"]
 [ext_resource type="Resource" uid="uid://m4ipu5x00h7t" path="res://berserk_amulet.tres" id="2_gyxxy"]
 [ext_resource type="Texture2D" uid="uid://bhbaqihbmcip6" path="res://assets/sprites/treasure.png" id="3_gyxxy"]
-[ext_resource type="AudioStream" uid="uid://dws0qlhhl12lp" path="res://assets/sounds/armourmedium.mp3" id="4_4m06l"]
+[ext_resource type="AudioStream" uid="uid://dws0qlhhl12lp" path="res://assets/sounds/pickup.mp3" id="4_4m06l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7cqbe"]
 
@@ -21,4 +21,4 @@ shape = SubResource("RectangleShape2D_7cqbe")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=650450294]
 stream = ExtResource("4_4m06l")
-volume_db = -9.0
+volume_db = -20.0

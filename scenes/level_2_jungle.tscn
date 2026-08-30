@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://burjdsrgqnfbq"]
+
+[ext_resource type="Texture2D" uid="uid://clot2r02kxte0" path="res://assets/sprites/Landshaft/pol.png" id="1_uwqb0"]
+[ext_resource type="PackedScene" uid="uid://ctdmem0mka3hv" path="res://scenes/player.tscn" id="2_jtbvm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jtbvm"]
+size = Vector2(5007, 100)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_gj7pp"]
+polygon = PackedVector2Array(-3060, 949, -1585, 944, -432, 944, 852, 944, 2206, 944)
+
+[node name="Level 2 jungle" type="Node2D" unique_id=599774383]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=591852209]
+position = Vector2(7400, 220)
+scale = Vector2(3, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1549980890]
+shape = SubResource("RectangleShape2D_jtbvm")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=783129132]
+position = Vector2(-4, -783)
+scale = Vector2(2.823397, 1.7480001)
+texture = ExtResource("1_uwqb0")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="StaticBody2D" unique_id=1834508406]
+position = Vector2(573, -968)
+occluder = SubResource("OccluderPolygon2D_gj7pp")
+
+[node name="Player" parent="." unique_id=42533981 instance=ExtResource("2_jtbvm")]
+position = Vector2(394, -167)

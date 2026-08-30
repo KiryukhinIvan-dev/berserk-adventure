@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://0sr84kqovpwy" path="res://scenes/enemy.tscn" id="2_0wfyh"]
 [ext_resource type="Texture2D" uid="uid://b3slng3ql5p11" path="res://assets/sprites/Landshaft/platform2.png" id="2_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://dxtgktk4hp7ys" path="res://scenes/parallax_2d.tscn" id="3_muem4"]
-[ext_resource type="PackedScene" uid="uid://cq23kxkqe4d6r" path="res://scenes/pause_menu.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cigmfw635msob" path="res://scenes/inventory_ui.tscn" id="5_tefeu"]
 [ext_resource type="Resource" uid="uid://o3733kureqxp" path="res://berserk_ring.tres" id="6_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://75u12gwypspw" path="res://scenes/pickup.tscn" id="6_tefeu"]
@@ -17,6 +16,8 @@
 [ext_resource type="AudioStream" uid="uid://dwoauiqu6j4o" path="res://assets/sounds/thundersingle.wav" id="15_jbj1t"]
 [ext_resource type="AudioStream" uid="uid://746b0pk4vqsx" path="res://assets/sounds/thundersingle2.wav" id="16_muem4"]
 [ext_resource type="AudioStream" uid="uid://ir01bs7c4gqg" path="res://assets/sounds/thunder3.wav" id="17_dp3eg"]
+[ext_resource type="PackedScene" uid="uid://b8ovfg70c56tb" path="res://scenes/boss_1.tscn" id="18_0ld40"]
+[ext_resource type="PackedScene" uid="uid://ddpt6eprmp6jg" path="res://scenes/door.tscn" id="18_dp3eg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o5qli"]
 size = Vector2(5007, 100)
@@ -108,7 +109,7 @@ collision_bounce = 0.25
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jkv2x"]
 random_pitch = 1.0686826
-random_volume_offset_db = 1.5
+random_volume_offset_db = 5.0
 streams_count = 3
 stream_0/stream = ExtResource("15_jbj1t")
 stream_1/stream = ExtResource("16_muem4")
@@ -117,13 +118,23 @@ stream_2/stream = ExtResource("17_dp3eg")
 [node name="main" type="Node2D" unique_id=937650363]
 script = ExtResource("1_jkv2x")
 
+[node name="Node2D" parent="." unique_id=502452644 instance=ExtResource("18_dp3eg")]
+position = Vector2(14662, -219)
+
+[node name="Platform" type="Sprite2D" parent="." unique_id=1106448551]
+position = Vector2(1002, -269)
+scale = Vector2(1.25, 1)
+texture = ExtResource("2_ya4ey")
+
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=812846836]
-position = Vector2(2400, 220)
+position = Vector2(7400, 220)
+scale = Vector2(3, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=584868939]
 shape = SubResource("RectangleShape2D_o5qli")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1512689219]
+visible = false
 position = Vector2(-4, -783)
 scale = Vector2(2.823397, 1.7480001)
 texture = ExtResource("1_eb6dy")
@@ -135,14 +146,9 @@ occluder = SubResource("OccluderPolygon2D_5gcps")
 [node name="Parallax2D" parent="." unique_id=986922363 instance=ExtResource("3_muem4")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1525035856]
-position = Vector2(2554, 46)
-scale = Vector2(4, 4)
+position = Vector2(2564, -58)
+scale = Vector2(6, 6)
 texture = ExtResource("10_choun")
-
-[node name="Platform" type="Sprite2D" parent="." unique_id=1106448551]
-position = Vector2(296, -30)
-scale = Vector2(0.451, 0.5)
-texture = ExtResource("2_ya4ey")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1369099694]
 position = Vector2(3021, -92)
@@ -155,19 +161,17 @@ frame_progress = 0.57623935
 occluder = SubResource("OccluderPolygon2D_choun")
 
 [node name="Player" parent="." unique_id=42533981 instance=ExtResource("1_o5qli")]
-position = Vector2(-9, 47)
+position = Vector2(402, -123)
 
 [node name="Enemy" parent="." unique_id=1676998315 instance=ExtResource("2_0wfyh")]
-position = Vector2(714, 60)
+position = Vector2(-23, -38)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=137344232]
-
-[node name="PauseMenu" parent="CanvasLayer" unique_id=2019294185 instance=ExtResource("3_sugp2")]
 
 [node name="InventoryUI" parent="CanvasLayer" unique_id=1122712801 instance=ExtResource("5_tefeu")]
 
 [node name="Pickup" parent="." unique_id=418403302 instance=ExtResource("6_tefeu")]
-position = Vector2(150, 76)
+position = Vector2(1341, 114)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Pickup" unique_id=1960261167]
 occluder = SubResource("OccluderPolygon2D_ya4ey")
@@ -185,9 +189,9 @@ shoot_range = 600.0
 
 [node name="Rain" type="GPUParticles2D" parent="." unique_id=1082427693]
 z_index = 50
-position = Vector2(5000, -1250)
-scale = Vector2(2, 2)
-amount = 250
+position = Vector2(7250, -1250)
+scale = Vector2(2.5, 2.5)
+amount = 200
 texture = SubResource("GradientTexture2D_85g3d")
 lifetime = 2.0
 speed_scale = 2.9
@@ -204,11 +208,13 @@ autoplay = true
 
 [node name="ThunderPlayer" type="AudioStreamPlayer" parent="." unique_id=1358028773]
 stream = SubResource("AudioStreamRandomizer_jkv2x")
-volume_db = -10.0
-autoplay = true
+volume_db = -20.0
 
 [node name="ThunderTimer" type="Timer" parent="." unique_id=1861363313]
 one_shot = true
 autostart = true
+
+[node name="BOSS1" parent="." unique_id=1191064302 instance=ExtResource("18_0ld40")]
+position = Vector2(13808, -158)
 
 [connection signal="timeout" from="ThunderTimer" to="." method="_on_thunder_timer_timeout"]

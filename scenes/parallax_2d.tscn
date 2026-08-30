@@ -24,6 +24,6 @@ texture = ExtResource("5_nv4us")
 
 [node name="BgPIr" type="Sprite2D" parent="." unique_id=1358450539]
 modulate = Color(0.23392558, 0.2339254, 0.23392552, 1)
-position = Vector2(1443, 303)
-scale = Vector2(0.4744898, 0.961)
+position = Vector2(1425.5, 422.44498)
+scale = Vector2(0.48231292, 0.7172347)
 texture = ExtResource("4_bqbnw")

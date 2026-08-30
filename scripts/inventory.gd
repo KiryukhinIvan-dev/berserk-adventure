@@ -26,3 +26,6 @@ func get_set_bonus(item_set: String) -> int:
 		if item.item_set == item_set:
 			count += 1
 	return int(float(count) / 2.0)
+
+func clear() -> void:
+	items.clear()

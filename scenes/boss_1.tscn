@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://b8ovfg70c56tb"]
+
+[ext_resource type="Texture2D" uid="uid://dymjogth1dyn8" path="res://assets/sprites/Boss1.png" id="1_gu4qg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gu4qg"]
+size = Vector2(426, 124)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5gcps"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gu4qg")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_tye4b"]
+polygon = PackedVector2Array(-177, 300, -118, 256, -144, 124, -50, 7, -53, -50, -123, 10, -214, 2, -237, -94, -234, -188, -242, -276, -198, -351, -149, -359, -110, -312, -112, -239, -177, -105, -115, -89, -63, -175, -48, -250, -6, -278, 51, -258, 56, -213, 142, -193, 225, -63, 222, 98, 222, 305)
+
+[node name="BOSS1" type="CharacterBody2D" unique_id=1191064302]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2106438471]
+position = Vector2(12, 243)
+shape = SubResource("RectangleShape2D_gu4qg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=171501992]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_5gcps")
+animation = &"idle"
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1045240058]
+occluder = SubResource("OccluderPolygon2D_tye4b")

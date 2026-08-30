@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://ddpt6eprmp6jg"]
+
+[ext_resource type="Script" uid="uid://both6x850uqxg" path="res://scripts/door.gd" id="1_hpvv5"]
+[ext_resource type="Texture2D" uid="uid://b7r0ggfdra75y" path="res://assets/sprites/monolit.png" id="2_uvdjg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l6cm7"]
+size = Vector2(902, 946)
+
+[node name="Node2D" type="Area2D" unique_id=502452644]
+script = ExtResource("1_hpvv5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1152359561]
+modulate = Color(0.33984375, 0.33984375, 0.33984375, 1)
+texture = ExtResource("2_uvdjg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=264197482]
+position = Vector2(-58, 35)
+shape = SubResource("RectangleShape2D_l6cm7")
+
+[node name="Label" type="Label" parent="." unique_id=1343009545]
+offset_left = -506.0
+offset_top = -203.0
+offset_right = 506.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0, 0.5028379, 1, 1)
+theme_override_font_sizes/font_size = 100
+text = "Press E to proceed"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
